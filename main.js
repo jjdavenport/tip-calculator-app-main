@@ -1,35 +1,29 @@
-const btn5 = document.getElementById("btn5");
-const btn10 = document.getElementById("btn10");
-const btn15 = document.getElementById("btn15");
-const btn25 = document.getElementById("btn25");
-const btn50 = document.getElementById("btn50");
 const reset = document.getElementById("reset");
+const tipA = document.getElementById("tip-amount");
+const tipP = document.getElementById("tip-per-person");
+const btn = document.querySelectorAll(".btn");
+const bill = document.getElementById("bill");
 const custom = document.getElementById("custom");
+const people = document.getElementById("people");
 
-btn5.addEventListener("click", () => {
-  console.log("click5");
-});
+let otherActive = null;
 
-btn10.addEventListener("click", () => {
-  console.log("click10");
-});
+btn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.target.classList.toggle("btn-active");
 
-btn15.addEventListener("click", () => {
-  console.log("click15");
-});
-
-btn25.addEventListener("click", () => {
-  console.log("click25");
-});
-
-btn50.addEventListener("click", () => {
-  console.log("click50");
+    if (otherActive && otherActive !== e.target) {
+      otherActive.classList.remove("btn-active");
+    }
+    otherActive = e.target;
+  });
 });
 
 reset.addEventListener("click", () => {
-  console.log("reset");
-});
-
-custom.addEventListener("input", () => {
-  console.log("custom");
+  btn.forEach((btn) => {
+    btn.classList.remove("btn-active");
+  });
+  bill.value = "";
+  custom.value = "";
+  people.value = "";
 });
