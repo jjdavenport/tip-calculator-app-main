@@ -48,3 +48,6 @@ main {
 .btn-inactive {
   display: none;
 }
+
+@media screen and (width > 40rem) {
+}
