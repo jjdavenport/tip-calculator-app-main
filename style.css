@@ -49,5 +49,9 @@ main {
   display: none;
 }
 
+.error {
+  border: 0.0625rem solid red;
+}
+
 @media screen and (width > 40rem) {
 }
