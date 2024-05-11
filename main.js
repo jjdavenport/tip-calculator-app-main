@@ -55,17 +55,16 @@ function value() {
     btn.addEventListener("click", (e) => {
       const btnClick = e.target;
       btnValue = parseFloat(btnClick.value / 100);
-      btnClicked = true;
+      btnClicked === true;
       calcTotal();
     });
   });
   custom.addEventListener("input", (e) => {
     const customInput = e.target;
     customValue = parseFloat(customInput.value / 100);
-    customValid = true;
     calcTotal();
   });
-  people.addEventListener("input", (e) => {
+  people.addEventListener("input", () => {
     const peopleInput = e.target;
     peopleValue = parseFloat(peopleInput.value);
     calcTip();
@@ -75,20 +74,34 @@ function value() {
 value();
 
 function calcTotal() {
-  let billTotal = null;
-  if ((btnClicked = true)) {
-    billTotal = billValue * btnValue;
-    totalValue = billValue + billTotal;
-  } else if ((customValid = true)) {
-    billTotal = billValue * customValue;
-    totalValue = billValue + billTotal;
-    console.log(totalValue);
+  if (custom.value === "" || btnClicked == true) {
+    btnCalc();
   }
-  totalP.innerText = `$${totalValue}`;
+  if (!custom.value === "" && btnClicked == true) {
+    customCalc();
+  }
+}
+
+function peopleCalc() {
+  const peopleInput = custom.value;
+  peopleValue = parseFloat(peopleInput.value);
 }
 
 function calcTip() {
   tipValue = totalValue / peopleValue;
   console.log(tipValue);
   tipA.innerText = `$${tipValue}`;
+}
+
+function customCalc() {
+  btn.classList.remove("btn-active");
+  billTotal = billValue * customValue;
+  totalValue = billValue + billTotal;
+  totalP.innerText = `$${totalValue}`;
+}
+
+function btnCalc() {
+  billTotal = billValue * btnValue;
+  totalValue = billValue + billTotal;
+  totalP.innerText = `$${totalValue}`;
 }
