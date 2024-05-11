@@ -1,107 +1,101 @@
-const reset = document.getElementById("reset");
-const tipA = document.getElementById("tip-amount");
-const totalP = document.getElementById("total-per-person");
-const btn = document.querySelectorAll(".btn");
 const bill = document.getElementById("bill");
+const btn = document.querySelectorAll(".btn");
+let btnOutput = 0;
+let billOutput = 0;
+let customOutput = 0;
+let peopleOutput = 0;
+let totalBillPer = 0;
+let btnClicked = false;
 const custom = document.getElementById("custom");
 const people = document.getElementById("people");
-let otherActive = null;
-let btnValue = null;
-let customValue = null;
-let billValue = null;
-let peopleValue = null;
-let tipValue = null;
-let btnClicked = false;
-let customValid = true;
-let totalValue = null;
+const tipAmount = document.getElementById("tip-amount");
+const totalPer = document.getElementById("total-per-person");
+const resetBtn = document.getElementById("reset");
+const btnDefault = document.querySelectorAll(`button[value="15"]`);
 
-btn.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.target.classList.toggle("btn-active");
+btn.forEach((button) => {
+  button.addEventListener("click", () => {
+    btn.forEach((btn) => {
+      btn.classList.remove("btn-active");
+    });
     custom.value = "";
-
-    if (otherActive && otherActive !== e.target) {
-      otherActive.classList.remove("btn-active");
-      custom.value = "";
-    }
-    otherActive = e.target;
+    button.classList.add("btn-active");
+    btnOutput = parseFloat(button.value) / 100;
+    totalBtn();
+    tipBtn();
   });
+});
+
+bill.addEventListener("input", () => {
+  billOutput = parseFloat(bill.value);
+  totalBtn();
+  tipBtn();
+  totalCustom();
+  tipCustom();
 });
 
 custom.addEventListener("input", () => {
-  btn.forEach((btn) => {
-    btn.classList.remove("btn-active");
-  });
+  if (custom.value >= 1) {
+    btn.forEach((btn) => {
+      btn.classList.remove("btn-active");
+    });
+  }
+  customOutput = parseFloat(custom.value) / 100;
+  totalCustom();
+  tipCustom();
 });
 
-reset.addEventListener("click", () => {
-  btn.forEach((btn) => {
-    btn.classList.remove("btn-active");
-  });
+people.addEventListener("input", () => {
+  peopleOutput = parseFloat(people.value);
+  totalCustom();
+  tipCustom();
+});
+
+function totalBtn() {
+  let tip = billOutput * btnOutput;
+  let totalBill = billOutput + tip;
+  totalBillPer = totalBill / peopleOutput;
+  totalPer.innerText = `$${totalBillPer.toFixed(2)}`;
+}
+
+function totalCustom() {
+  let tip = billOutput * customOutput;
+  totalBill = billOutput + tip;
+  totalBillPer = totalBill / peopleOutput;
+  totalPer.innerText = `$${totalBillPer.toFixed(2)}`;
+}
+
+function tipBtn() {
+  let totalTip = billOutput * btnOutput;
+  let tipCalc = totalTip / peopleOutput;
+  tipAmount.innerText = `$${tipCalc.toFixed(2)}`;
+}
+
+function tipCustom() {
+  let totalTip = billOutput * customOutput;
+  let tipCalc = totalTip / peopleOutput;
+  tipAmount.innerText = `$${tipCalc.toFixed(2)}`;
+}
+
+resetBtn.addEventListener("click", () => {
   bill.value = "";
   custom.value = "";
   people.value = "";
-  tipA.innerText = "$0.00";
-  totalP.innerText = "$0.00";
+  totalPer.innerText = "$0.00";
+  tipAmount.innerText = "$0.00";
 });
 
-function value() {
-  bill.addEventListener("input", (e) => {
-    const billInput = e.target;
-    billValue = parseFloat(billInput.value);
-    calcTotal();
+function defaultBtn() {
+  btnDefault.forEach((btn) => {
+    btn.classList.add("btn-active");
   });
-  btn.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const btnClick = e.target;
-      btnValue = parseFloat(btnClick.value / 100);
-      btnClicked === true;
-      calcTotal();
-    });
-  });
-  custom.addEventListener("input", (e) => {
-    const customInput = e.target;
-    customValue = parseFloat(customInput.value / 100);
-    calcTotal();
-  });
-  people.addEventListener("input", () => {
-    const peopleInput = e.target;
-    peopleValue = parseFloat(peopleInput.value);
-    calcTip();
-  });
+  bill.value = 142.55;
+  people.value = 5;
+  billOutput = 142.55;
+  btnOutput = 0.15;
+  peopleOutput = 5;
+  totalBtn();
+  tipBtn();
 }
 
-value();
-
-function calcTotal() {
-  if (custom.value === "" || btnClicked == true) {
-    btnCalc();
-  }
-  if (!custom.value === "" && btnClicked == true) {
-    customCalc();
-  }
-}
-
-function peopleCalc() {
-  const peopleInput = custom.value;
-  peopleValue = parseFloat(peopleInput.value);
-}
-
-function calcTip() {
-  tipValue = totalValue / peopleValue;
-  console.log(tipValue);
-  tipA.innerText = `$${tipValue}`;
-}
-
-function customCalc() {
-  btn.classList.remove("btn-active");
-  billTotal = billValue * customValue;
-  totalValue = billValue + billTotal;
-  totalP.innerText = `$${totalValue}`;
-}
-
-function btnCalc() {
-  billTotal = billValue * btnValue;
-  totalValue = billValue + billTotal;
-  totalP.innerText = `$${totalValue}`;
-}
+defaultBtn();
