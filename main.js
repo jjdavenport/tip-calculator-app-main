@@ -27,6 +27,9 @@ btn.forEach((button) => {
 });
 
 bill.addEventListener("input", () => {
+  if (people.value === "") {
+    people.classList.add("error");
+  }
   billOutput = parseFloat(bill.value);
   totalBtn();
   tipBtn();
@@ -78,16 +81,26 @@ function tipCustom() {
 }
 
 resetBtn.addEventListener("click", () => {
+  btn.forEach((btn) => {
+    btn.classList.remove("btn-active");
+  });
+  people.classList.remove("error");
   bill.value = "";
   custom.value = "";
   people.value = "";
+  btnOutput = 0;
+  billOutput = 0;
+  customOutput = 0;
+  peopleOutput = 1;
+  totalBillPer = 0;
+  btnClicked = false;
   totalPer.innerText = "$0.00";
   tipAmount.innerText = "$0.00";
 });
 
 function defaultBtn() {
   btnDefault.forEach((btn) => {
-    btn.classList.add("btn-active");
+    btn.classList.toggle("btn-active");
   });
   bill.value = 142.55;
   people.value = 5;
