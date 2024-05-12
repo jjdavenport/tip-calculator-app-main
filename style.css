@@ -85,6 +85,12 @@ main input::placeholder {
   color: var(--input-placeholder-font-color);
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 input:hover,
 .btn:hover {
   cursor: pointer;
@@ -108,7 +114,9 @@ input:hover,
 }
 
 .bill input {
-  flex: 1;
+  background-image: url(./images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position: calc(0% + 5%) center;
 }
 
 .btn {
@@ -142,6 +150,12 @@ input:hover,
 .number {
   display: flex;
   flex-direction: column;
+}
+
+.number input {
+  background-image: url(./images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position: calc(0% + 5%) center;
 }
 
 .title-error {
@@ -200,7 +214,7 @@ input:hover,
   color: red;
 }
 
-@media screen and (width > 40rem) {
+@media screen and (width >= 43rem) {
   body {
     place-items: center;
     background-position: center 20%;
@@ -212,8 +226,11 @@ input:hover,
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-radius: 0.625rem;
-    width: 43.75rem;
+    border-radius: 1rem;
+    height: 40vh;
+    width: 60vw;
+    min-width: 43rem;
+    min-height: 22rem;
   }
   .attribution {
     background: none;
@@ -229,11 +246,16 @@ input:hover,
     grid-template-rows: 1fr;
   }
   .calc {
+    padding: 2rem;
     justify-content: space-between;
     flex: 1;
+    border-radius: 1rem;
+  }
+  #reset {
+    height: 4vh;
   }
   #tip-amount,
   #total-per-person {
-    font-size: 2.125rem;
+    font-size: 2.75rem;
   }
 }
