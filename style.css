@@ -32,6 +32,7 @@ body {
   --number-span-font-color: hsl(184, 14%, 56%);
   --input-font-color: hsl(183, 100%, 15%);
   --input-placeholder-font-color: hsl(184, 14%, 56%);
+  --reset-background-clicked: hsl(172, 67%, 45%, 0.2);
 }
 
 .background {
@@ -78,7 +79,7 @@ main input {
 
 main input:focus {
   outline: none;
-  border: 0.125rem solid var(--btn-active-background-color);
+  outline: 0.125rem solid var(--btn-active-background-color);
 }
 
 main input::placeholder {
@@ -98,6 +99,7 @@ input:hover,
 
 .btn:hover,
 #reset:hover {
+  cursor: pointer;
   color: var(--btn-default-background-color);
   background-color: var(--body-background-color);
 }
@@ -207,11 +209,15 @@ input:hover,
 }
 
 .error {
-  border: 0.0625rem solid red;
+  outline: 0.0625rem solid red;
 }
 
 .error-message {
   color: red;
+}
+
+#reset.reset-clicked {
+  background: var(--reset-background-clicked);
 }
 
 @media screen and (width >= 43rem) {

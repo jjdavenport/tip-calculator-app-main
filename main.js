@@ -27,6 +27,7 @@ btn.forEach((button) => {
     btnOutput = parseFloat(button.value) / 100;
     totalBtn();
     tipBtn();
+    resetDefault();
   });
 });
 
@@ -39,6 +40,7 @@ bill.addEventListener("input", () => {
   tipBtn();
   totalCustom();
   tipCustom();
+  resetDefault();
 });
 
 custom.addEventListener("input", () => {
@@ -55,6 +57,7 @@ custom.addEventListener("input", () => {
   tipBtn();
   totalCustom();
   tipCustom();
+  resetDefault();
 });
 
 people.addEventListener("input", () => {
@@ -66,6 +69,7 @@ people.addEventListener("input", () => {
   tipBtn();
   totalCustom();
   tipCustom();
+  resetDefault();
 });
 
 function totalBtn() {
@@ -99,6 +103,7 @@ resetBtn.addEventListener("click", () => {
     btn.classList.remove("btn-active");
   });
   removeError();
+  reset();
   bill.value = "";
   custom.value = "";
   people.value = "";
@@ -139,4 +144,12 @@ function removeError() {
   errorMessage.innerText = "";
   errorMessage.classList.remove("error-message");
   people.classList.remove("error");
+}
+
+function reset() {
+  resetBtn.classList.add("reset-clicked");
+}
+
+function resetDefault() {
+  resetBtn.classList.remove("reset-clicked");
 }
