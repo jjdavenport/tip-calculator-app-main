@@ -23,7 +23,7 @@
         text-align: center;
       }
       .attribution a {
-        color: hsl(228, 45%, 44%);
+        text-decoration: none;
       }
     </style>
   </head>
@@ -32,11 +32,11 @@
     <main>
       <div class="left">
       <div class="bill">
-        <p class="title">Bill</p>
+        <label class="title">Bill</label>
         <input id="bill" type="number" placeholder="0" dir="rtl" />
       </div>
       <div class="btns">
-        <p class="title">Select Tip %</p>
+        <label class="title">Select Tip %</label>
         <div class="tip-btns">
           <button value="5" class="btn">5%</button>
           <button value="10" class="btn">10%</button>
@@ -47,7 +47,10 @@
         </div>
       </div>
       <div class="number">
-        <p class="title">Number of People</p>
+        <div class="title-error">
+        <label class="title">Number of People</label>
+        <p id="error-message"></p>
+      </div>
         <input id="people" type="number" placeholder="0" dir="rtl" />
       </div>
     </div>

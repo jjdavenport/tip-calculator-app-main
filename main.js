@@ -15,6 +15,10 @@ const btnDefault = document.querySelectorAll(`button[value="15"]`);
 
 btn.forEach((button) => {
   button.addEventListener("click", () => {
+    btnClicked = true;
+    if (btnClicked === true && people.value === "") {
+      error();
+    }
     btn.forEach((btn) => {
       btn.classList.remove("btn-active");
     });
@@ -28,7 +32,7 @@ btn.forEach((button) => {
 
 bill.addEventListener("input", () => {
   if (people.value === "") {
-    people.classList.add("error");
+    error();
   }
   billOutput = parseFloat(bill.value);
   totalBtn();
@@ -38,6 +42,9 @@ bill.addEventListener("input", () => {
 });
 
 custom.addEventListener("input", () => {
+  if (custom.value && people.value === "") {
+    error();
+  }
   if (custom.value >= 1) {
     btn.forEach((btn) => {
       btn.classList.remove("btn-active");
@@ -51,7 +58,12 @@ custom.addEventListener("input", () => {
 });
 
 people.addEventListener("input", () => {
+  if (people.value !== "") {
+    removeError();
+  }
   peopleOutput = parseFloat(people.value);
+  totalBtn();
+  tipBtn();
   totalCustom();
   tipCustom();
 });
@@ -86,7 +98,7 @@ resetBtn.addEventListener("click", () => {
   btn.forEach((btn) => {
     btn.classList.remove("btn-active");
   });
-  people.classList.remove("error");
+  removeError();
   bill.value = "";
   custom.value = "";
   people.value = "";
@@ -114,3 +126,17 @@ function defaultBtn() {
 }
 
 defaultBtn();
+
+function error() {
+  const errorMessage = document.getElementById("error-message");
+  errorMessage.innerText = "Can't be zero";
+  errorMessage.classList.add("error-message");
+  people.classList.add("error");
+}
+
+function removeError() {
+  const errorMessage = document.getElementById("error-message");
+  errorMessage.innerText = "";
+  errorMessage.classList.remove("error-message");
+  people.classList.remove("error");
+}
