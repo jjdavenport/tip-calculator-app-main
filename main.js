@@ -44,6 +44,8 @@ custom.addEventListener("input", () => {
     });
   }
   customOutput = parseFloat(custom.value) / 100;
+  totalBtn();
+  tipBtn();
   totalCustom();
   tipCustom();
 });
