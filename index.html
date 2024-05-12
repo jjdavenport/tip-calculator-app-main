@@ -28,31 +28,38 @@
     </style>
   </head>
   <body>
+    <div class="background">
+      <img src="./images/logo.svg" alt="logo" />
+    </div>
     <main>
       <div class="bill">
-        <p>Bill</p>
-        <input id="bill" type="number" placeholder="0" />
+        <p class="title">Bill</p>
+        <input id="bill" type="number" placeholder="0" dir="rtl" />
       </div>
       <div class="btns">
-        <p>Select Tip %</p>
+        <p class="title">Select Tip %</p>
         <div class="tip-btns">
-          <button value="5" class="btn" id="btn5">5%</button>
-          <button value="10" class="btn" id="btn10">10%</button>
-          <button value="15" class="btn" id="btn15">15%</button>
-          <button value="25" class="btn" id="btn25">25%</button>
-          <button value="50" class="btn" id="btn50">50%</button>
-          <input id="custom" type="number" placeholder="Custom" />
+          <button value="5" class="btn">5%</button>
+          <button value="10" class="btn">10%</button>
+          <button value="15" class="btn">15%</button>
+          <button value="25" class="btn">25%</button>
+          <button value="50" class="btn">50%</button>
+          <input id="custom" type="number" placeholder="Custom" dir="rtl" />
         </div>
       </div>
       <div class="number">
-        <p>Number of People</p>
-        <input id="people" type="number" placeholder="0" />
+        <p class="title">Number of People</p>
+        <input id="people" type="number" placeholder="0" dir="rtl" />
       </div>
-      <div>
-        <p>Tip Amount / person</p>
-        <p>Total / person</p>
-        <p id="tip-amount">$0.00</p>
-        <p id="total-per-person">$0.00</p>
+      <div class="calc">
+        <div class="top-row">
+          <p>Tip Amount</br><span> / person</span></p>
+          <p id="tip-amount">$0.00</p>
+        </div>
+        <div class="bottom-row">
+          <p>Total</br><span> / person</span></p>
+          <p id="total-per-person">$0.00</p>
+        </div>
         <button id="reset">Reset</button>
       </div>
     </main>
