@@ -190,7 +190,7 @@ input:hover,
 }
 
 #reset {
-  height: 5vh;
+  height: 2.5rem;
   color: var(--btn-default-background-color);
   text-transform: uppercase;
   border-radius: 0.375rem;
@@ -218,6 +218,7 @@ input:hover,
 
 #reset.reset-clicked {
   background: var(--reset-background-clicked);
+  cursor: not-allowed;
 }
 
 @media screen and (width >= 43rem) {
@@ -258,7 +259,7 @@ input:hover,
     border-radius: 1rem;
   }
   #reset {
-    height: 4vh;
+    height: 2.5rem;
   }
   #tip-amount,
   #total-per-person {
