@@ -1,4 +1,4 @@
-const Number = ({ numberInput, setNumberInput }) => {
+const Number = ({ numberInput, setNumberInput, error }) => {
   const change = (e) => {
     setNumberInput(e.target.value);
   };
@@ -6,8 +6,10 @@ const Number = ({ numberInput, setNumberInput }) => {
     <>
       <div>
         <div>
-          <label>Number of People</label>
-          <p></p>
+          <label>
+            <span>Number of People</span>
+            {error && <span>{error}</span>}
+          </label>
         </div>
         <input
           value={numberInput}

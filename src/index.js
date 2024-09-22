@@ -117,21 +117,6 @@ resetBtn.addEventListener("click", () => {
   tipAmount.innerText = "$0.00";
 });
 
-function defaultBtn() {
-  btnDefault.forEach((btn) => {
-    btn.classList.toggle("btn-active");
-  });
-  bill.value = 142.55;
-  people.value = 5;
-  billOutput = 142.55;
-  btnOutput = 0.15;
-  peopleOutput = 5;
-  totalBtn();
-  tipBtn();
-}
-
-defaultBtn();
-
 function error() {
   const errorMessage = document.getElementById("error-message");
   errorMessage.innerText = "Can't be zero";

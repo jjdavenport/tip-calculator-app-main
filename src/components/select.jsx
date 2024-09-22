@@ -1,10 +1,20 @@
-const Select = ({ selectInput, setSelectInput }) => {
+const Select = ({
+  selectInput,
+  setSelectInput,
+  customInput,
+  setCustomInput,
+  check,
+}) => {
   const change = (e) => {
-    setSelectInput(e.target.value);
+    setCustomInput(e.target.value);
+    setSelectInput("");
+    check();
   };
 
   const click = (val) => {
     setSelectInput(val);
+    setCustomInput("");
+    check();
   };
 
   return (
@@ -43,7 +53,7 @@ const Select = ({ selectInput, setSelectInput }) => {
             50%
           </button>
           <input
-            value={selectInput}
+            value={customInput}
             onChange={change}
             type="number"
             placeholder="Custom"
