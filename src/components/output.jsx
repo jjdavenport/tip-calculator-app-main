@@ -1,4 +1,4 @@
-const Output = () => {
+const Output = ({ onClick }) => {
   return (
     <>
       <div>
@@ -20,7 +20,7 @@ const Output = () => {
             <p>$0.00</p>
           </div>
         </div>
-        <button>Reset</button>
+        <button onClick={onClick}>Reset</button>
       </div>
     </>
   );
