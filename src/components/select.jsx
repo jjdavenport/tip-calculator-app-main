@@ -19,35 +19,35 @@ const Select = ({
 
   return (
     <>
-      <div>
-        <label>Select Tip %</label>
-        <div className="grid grid-cols-3 grid-rows-3">
+      <label>
+        Select Tip %
+        <div className="grid grid-cols-3 grid-rows-3 gap-1">
           <button
-            className={selectInput === 5 ? "bg-black" : "bg-white"}
+            className={selectInput === 5 ? "bg-strongCyan" : "bg-veryDarkCyan"}
             onClick={() => click(5)}
           >
             5%
           </button>
           <button
-            className={selectInput === 10 ? "bg-black" : "bg-white"}
+            className={selectInput === 10 ? "bg-strongCyan" : "bg-veryDarkCyan"}
             onClick={() => click(10)}
           >
             10%
           </button>
           <button
-            className={selectInput === 15 ? "bg-black" : "bg-white"}
+            className={selectInput === 15 ? "bg-strongCyan" : "bg-veryDarkCyan"}
             onClick={() => click(15)}
           >
             15%
           </button>
           <button
-            className={selectInput === 25 ? "bg-black" : "bg-white"}
+            className={selectInput === 25 ? "bg-strongCyan" : "bg-veryDarkCyan"}
             onClick={() => click(25)}
           >
             25%
           </button>
           <button
-            className={selectInput === 50 ? "bg-black" : "bg-white"}
+            className={selectInput === 50 ? "bg-strongCyan" : "bg-veryDarkCyan"}
             onClick={() => click(50)}
           >
             50%
@@ -60,7 +60,7 @@ const Select = ({
             dir="rtl"
           />
         </div>
-      </div>
+      </label>
     </>
   );
 };

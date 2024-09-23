@@ -1,4 +1,4 @@
-const Output = ({ onClick, total, tip }) => {
+const Output = ({ onClick, total, tip, isDisabled }) => {
   return (
     <>
       <div>
@@ -20,7 +20,12 @@ const Output = ({ onClick, total, tip }) => {
             <p>${total ? total() : "0.00"}</p>
           </div>
         </div>
-        <button onClick={onClick}>Reset</button>
+        <button
+          className={`${isDisabled ? "bg-disabledBtn cursor-not-allowed" : "bg-veryDarkCyan cursor-pointer"} rounded-lg uppercase`}
+          onClick={onClick}
+        >
+          Reset
+        </button>
       </div>
     </>
   );

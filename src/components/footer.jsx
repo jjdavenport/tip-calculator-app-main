@@ -1,10 +1,13 @@
 const Footer = () => {
   return (
     <>
-      <footer>
-        <p>
+      <footer className="text-xs">
+        <p className="inline">
           Challenge by
-          <a href="https://www.frontendmentor.io?ref=challenge">
+          <a
+            className="pl-1"
+            href="https://www.frontendmentor.io?ref=challenge"
+          >
             Frontend Mentor
           </a>
           . Coded by <a href="https://github.com/jjdavenport">jjdavenport</a>.

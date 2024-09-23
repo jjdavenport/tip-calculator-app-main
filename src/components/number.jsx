@@ -4,13 +4,9 @@ const Number = ({ numberInput, setNumberInput, error, onBlur }) => {
   };
   return (
     <>
-      <div>
-        <div>
-          <label>
-            <span>Number of People</span>
-            {error && <span>{error}</span>}
-          </label>
-        </div>
+      <label className="flex flex-col">
+        <span>Number of People</span>
+        {error && <span>{error}</span>}
         <input
           onBlur={onBlur}
           value={numberInput}
@@ -19,7 +15,7 @@ const Number = ({ numberInput, setNumberInput, error, onBlur }) => {
           placeholder="0"
           dir="rtl"
         />
-      </div>
+      </label>
     </>
   );
 };

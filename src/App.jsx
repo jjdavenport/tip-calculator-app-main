@@ -11,6 +11,7 @@ function App() {
   const [selectInput, setSelectInput] = useState("");
   const [customInput, setCustomInput] = useState("");
   const [error, setError] = useState(false);
+  const disable = !billInput && !numberInput && !selectInput && !customInput;
 
   const clear = () => {
     setBillInput("");
@@ -53,22 +54,31 @@ function App() {
 
   return (
     <>
-      <Bill billInput={billInput} setBillInput={setBillInput} />
-      <Select
-        selectInput={selectInput}
-        setSelectInput={setSelectInput}
-        customInput={customInput}
-        setCustomInput={setCustomInput}
-        check={check}
-      />
-      <Number
-        error={error}
-        numberInput={numberInput}
-        setNumberInput={setNumberInput}
-        onBlur={check}
-      />
-      <Output tip={tip} total={total} onClick={clear} />
-      <Footer />
+      <div className="bg-lightGrayishCyan flex h-full min-h-screen flex-col justify-between">
+        <main className="flex flex-1 flex-col p-4 text-2xl">
+          <Bill billInput={billInput} setBillInput={setBillInput} />
+          <Select
+            selectInput={selectInput}
+            setSelectInput={setSelectInput}
+            customInput={customInput}
+            setCustomInput={setCustomInput}
+            check={check}
+          />
+          <Number
+            error={error}
+            numberInput={numberInput}
+            setNumberInput={setNumberInput}
+            onBlur={check}
+          />
+          <Output
+            isDisabled={disable}
+            tip={tip}
+            total={total}
+            onClick={clear}
+          />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

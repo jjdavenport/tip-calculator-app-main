@@ -5,8 +5,8 @@ const Bill = ({ billInput, setBillInput }) => {
 
   return (
     <>
-      <div>
-        <label>Bill</label>
+      <label className="flex flex-col">
+        Bill
         <input
           value={billInput}
           onChange={change}
@@ -14,7 +14,7 @@ const Bill = ({ billInput, setBillInput }) => {
           placeholder="0"
           dir="rtl"
         />
-      </div>
+      </label>
     </>
   );
 };
