@@ -56,7 +56,7 @@ function App() {
   return (
     <>
       <div className="bg-lightGrayishCyan font-custom flex h-full min-h-screen flex-col justify-between">
-        <main className="flex flex-1 flex-col p-4 text-2xl">
+        <main className="flex flex-1 flex-col gap-4 bg-white p-4 text-2xl font-bold">
           <Bill billInput={billInput} setBillInput={setBillInput} />
           <Select
             selectInput={selectInput}

@@ -1,32 +1,30 @@
 const Output = ({ onClick, total, tip, isDisabled }) => {
   return (
     <>
-      <div>
-        <div>
-          <div>
-            <p>
-              Tip Amount
-              <br />
-              <span> / person</span>
-            </p>
-            <p>${tip ? tip() : "0.00"}</p>
+      <section className="bg-veryDarkCyan flex flex-col gap-2 rounded-lg p-4">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col">
+              <span>Tip Amount</span>
+              <span>/ person</span>
+            </div>
+            <span className="text-strongCyan">${tip ? tip() : "0.00"}</span>
           </div>
-          <div>
-            <p>
-              Total
-              <br />
-              <span> / person</span>
-            </p>
-            <p>${total ? total() : "0.00"}</p>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col">
+              <span>Total</span>
+              <span>/ person</span>
+            </div>
+            <span className="text-strongCyan">${total ? total() : "0.00"}</span>
           </div>
         </div>
         <button
-          className={`${isDisabled ? "bg-disabledBtn cursor-not-allowed" : "bg-veryDarkCyan cursor-pointer"} rounded-lg uppercase`}
+          className={`${isDisabled ? "bg-disabledBtn cursor-not-allowed" : "bg-strongCyan cursor-pointer"} text-veryDarkCyan w-full rounded-md p-1 uppercase`}
           onClick={onClick}
         >
           Reset
         </button>
-      </div>
+      </section>
     </>
   );
 };
