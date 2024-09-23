@@ -31,9 +31,9 @@ function App() {
   };
 
   const tip = () => {
-    if (billInput && numberInput) {
+    const people = parseFloat(numberInput);
+    if (billInput && people > 0) {
       const bill = parseFloat(billInput);
-      const people = parseFloat(numberInput);
       const tipPercentage = customInput ? customInput / 100 : selectInput / 100;
       const tipAmount = bill * tipPercentage;
       const totalPerPerson = tipAmount / people;
@@ -43,9 +43,9 @@ function App() {
   };
 
   const total = () => {
-    if (billInput && numberInput) {
+    const people = parseFloat(numberInput);
+    if (billInput && people > 0) {
       const bill = parseFloat(billInput);
-      const people = parseFloat(numberInput);
       const tipPercentage = customInput ? customInput / 100 : selectInput / 100;
       const tipAmount = bill * tipPercentage;
       const totalPerPerson = (bill + tipAmount) / people;
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-lightGrayishCyan font-custom bg-logo bg-logoMobile flex h-full min-h-screen flex-col bg-no-repeat pt-32">
+      <div className="flex h-full min-h-screen flex-col bg-lightGrayishCyan bg-logo bg-logoMobile bg-no-repeat pt-32 font-custom">
         <main className="flex flex-1 flex-col gap-6 rounded-t-3xl bg-white p-4 font-bold">
           <Bill billInput={billInput} setBillInput={setBillInput} />
           <Select
