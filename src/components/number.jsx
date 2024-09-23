@@ -5,8 +5,10 @@ const Number = ({ numberInput, setNumberInput, error, onBlur }) => {
   return (
     <>
       <label className="flex flex-col">
-        <span>Number of People</span>
-        {error && <span>{error}</span>}
+        <div className="flex justify-between">
+          <span>Number of People</span>
+          {error && <span>{error}</span>}
+        </div>
         <input
           onBlur={onBlur}
           value={numberInput}

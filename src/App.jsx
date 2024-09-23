@@ -18,6 +18,7 @@ function App() {
     setNumberInput("");
     setSelectInput("");
     setCustomInput("");
+    setError("");
   };
 
   const check = () => {
@@ -54,7 +55,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-lightGrayishCyan flex h-full min-h-screen flex-col justify-between">
+      <div className="bg-lightGrayishCyan font-custom flex h-full min-h-screen flex-col justify-between">
         <main className="flex flex-1 flex-col p-4 text-2xl">
           <Bill billInput={billInput} setBillInput={setBillInput} />
           <Select
