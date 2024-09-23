@@ -15,6 +15,12 @@ export default {
       fontFamily: {
         custom: ["space mono", "sans-serif"],
       },
+      backgroundImage: {
+        logo: "url('./public/images/logo.svg')",
+      },
+      backgroundPosition: {
+        logoMobile: "center top 2rem",
+      },
     },
   },
   plugins: [],
