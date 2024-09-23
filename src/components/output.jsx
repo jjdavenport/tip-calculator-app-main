@@ -1,4 +1,4 @@
-const Output = ({ onClick }) => {
+const Output = ({ onClick, total, tip }) => {
   return (
     <>
       <div>
@@ -9,7 +9,7 @@ const Output = ({ onClick }) => {
               <br />
               <span> / person</span>
             </p>
-            <p>$0.00</p>
+            <p>${tip ? tip() : "0.00"}</p>
           </div>
           <div>
             <p>
@@ -17,7 +17,7 @@ const Output = ({ onClick }) => {
               <br />
               <span> / person</span>
             </p>
-            <p>$0.00</p>
+            <p>${total ? total() : "0.00"}</p>
           </div>
         </div>
         <button onClick={onClick}>Reset</button>

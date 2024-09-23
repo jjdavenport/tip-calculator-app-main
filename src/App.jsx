@@ -27,6 +27,30 @@ function App() {
     }
   };
 
+  const tip = () => {
+    if (billInput && numberInput) {
+      const bill = parseFloat(billInput);
+      const people = parseFloat(numberInput);
+      const tipPercentage = customInput ? customInput / 100 : selectInput / 100;
+      const tipAmount = bill * tipPercentage;
+      const totalPerPerson = tipAmount / people;
+      return totalPerPerson.toFixed(2);
+    }
+    return "0.00";
+  };
+
+  const total = () => {
+    if (billInput && numberInput) {
+      const bill = parseFloat(billInput);
+      const people = parseFloat(numberInput);
+      const tipPercentage = customInput ? customInput / 100 : selectInput / 100;
+      const tipAmount = bill * tipPercentage;
+      const totalPerPerson = (bill + tipAmount) / people;
+      return totalPerPerson.toFixed(2);
+    }
+    return "0.00";
+  };
+
   return (
     <>
       <Bill billInput={billInput} setBillInput={setBillInput} />
@@ -41,8 +65,9 @@ function App() {
         error={error}
         numberInput={numberInput}
         setNumberInput={setNumberInput}
+        onBlur={check}
       />
-      <Output onClick={clear} />
+      <Output tip={tip} total={total} onClick={clear} />
       <Footer />
     </>
   );

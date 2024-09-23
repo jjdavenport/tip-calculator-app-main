@@ -1,4 +1,4 @@
-const Number = ({ numberInput, setNumberInput, error }) => {
+const Number = ({ numberInput, setNumberInput, error, onBlur }) => {
   const change = (e) => {
     setNumberInput(e.target.value);
   };
@@ -12,6 +12,7 @@ const Number = ({ numberInput, setNumberInput, error }) => {
           </label>
         </div>
         <input
+          onBlur={onBlur}
           value={numberInput}
           onChange={change}
           type="number"
