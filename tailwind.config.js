@@ -11,7 +11,6 @@ export default {
         lightGrayishCyan: "hsl(185, 41%, 84%)",
         veryLightGrayishCyan: "hsl(189, 41%, 97%)",
         white: "hsl(0, 0%, 100%)",
-        disabledBtn: "hsl(172, 67%, 45%, 0.2)",
       },
       fontFamily: {
         custom: ["space mono", "sans-serif"],

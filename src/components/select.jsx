@@ -14,33 +14,30 @@ const Select = ({
     setCustomInput(value);
     setSelectInput("");
     check();
-    console.log(change);
   };
 
   const click = (val) => {
     setSelectInput(val);
     setCustomInput("");
     check();
-    console.log(click);
   };
 
   const button = (val) => `
     ${
       selectInput === val
-        ? "bg-strongCyan text-veryDarkCyan"
+        ? "bg-strongCyan text-veryDarkCyan hover:bg-lightGrayishCyan hover:text-veryDarkCyan"
         : hover === val
           ? "bg-lightGrayishCyan text-veryDarkCyan"
           : "bg-veryDarkCyan text-white"
     }
-    active:bg-strongCyan active:text-veryDarkCyan
     rounded-md duration-300 ease-in-out
   `;
 
   return (
     <>
-      <label className="flex flex-col gap-1">
+      <label className="text-grayishCyan flex flex-col gap-2">
         Select Tip %
-        <div className="grid grid-cols-3 grid-rows-2 gap-1">
+        <div className="grid grid-cols-2 grid-rows-3 gap-4 text-2xl md:grid-cols-3 md:grid-rows-2">
           <button
             onMouseEnter={() => setHover(5)}
             onMouseLeave={() => setHover(null)}
@@ -82,11 +79,12 @@ const Select = ({
             50%
           </button>
           <input
-            className="bg-veryLightGrayishCyan placeholder:text-grayishCyan focus:outline-strongCyan caret-strongCyan cursor-pointer rounded-md p-2 focus:outline focus:outline-2"
+            className="bg-veryLightGrayishCyan placeholder:text-darkGrayishCyan focus:outline-strongCyan text-veryDarkCyan caret-strongCyan cursor-pointer rounded-md p-2 focus:outline focus:outline-2"
             value={customInput}
             onChange={change}
             type="number"
             placeholder="Custom"
+            dir="rtl"
           />
         </div>
       </label>

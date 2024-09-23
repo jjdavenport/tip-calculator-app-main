@@ -5,10 +5,10 @@ const Bill = ({ billInput, setBillInput }) => {
 
   return (
     <>
-      <label className="flex flex-col gap-1">
+      <label className="text-grayishCyan flex flex-col gap-2 text-base">
         Bill
         <input
-          className="placeholder:text-grayishCyan focus:outline-strongCyan bg-veryLightGrayishCyan caret-strongCyan cursor-pointer rounded-md p-2 focus:outline focus:outline-2"
+          className="placeholder:text-darkGrayishCyan text-veryDarkCyan focus:outline-strongCyan bg-veryLightGrayishCyan caret-strongCyan cursor-pointer rounded-md p-2 text-2xl focus:outline focus:outline-2"
           value={billInput}
           onChange={change}
           type="number"

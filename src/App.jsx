@@ -22,7 +22,8 @@ function App() {
   };
 
   const check = () => {
-    if (numberInput === "") {
+    const number = parseFloat(numberInput);
+    if (numberInput === "" || number === 0) {
       setError("Can't be zero");
     } else {
       setError("");
@@ -56,7 +57,7 @@ function App() {
   return (
     <>
       <div className="bg-lightGrayishCyan font-custom flex h-full min-h-screen flex-col justify-between">
-        <main className="flex flex-1 flex-col gap-4 bg-white p-4 text-2xl font-bold">
+        <main className="flex flex-1 flex-col gap-6 bg-white p-4 font-bold">
           <Bill billInput={billInput} setBillInput={setBillInput} />
           <Select
             selectInput={selectInput}
