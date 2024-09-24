@@ -5,7 +5,6 @@ const Select = ({
   setSelectInput,
   customInput,
   setCustomInput,
-  check,
 }) => {
   const [hover, setHover] = useState(null);
 
@@ -13,13 +12,11 @@ const Select = ({
     const value = e.target.value;
     setCustomInput(value);
     setSelectInput("");
-    check();
   };
 
   const click = (val) => {
     setSelectInput(val);
     setCustomInput("");
-    check();
   };
 
   const button = (val) => `
@@ -35,7 +32,7 @@ const Select = ({
 
   return (
     <>
-      <label className="text-grayishCyan flex flex-col gap-2">
+      <label className="flex flex-col gap-2 text-grayishCyan">
         Select Tip %
         <div className="grid grid-cols-2 grid-rows-3 gap-4 text-2xl md:grid-cols-3 md:grid-rows-2">
           <button
@@ -79,7 +76,7 @@ const Select = ({
             50%
           </button>
           <input
-            className="bg-veryLightGrayishCyan placeholder:text-darkGrayishCyan focus:outline-strongCyan text-veryDarkCyan caret-strongCyan cursor-pointer rounded-md p-2 focus:outline focus:outline-2"
+            className="cursor-pointer rounded-md bg-veryLightGrayishCyan p-2 text-veryDarkCyan caret-strongCyan placeholder:text-darkGrayishCyan focus:outline focus:outline-2 focus:outline-strongCyan"
             value={customInput}
             onChange={change}
             type="number"

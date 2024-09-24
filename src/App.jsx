@@ -23,7 +23,7 @@ function App() {
 
   const check = () => {
     const number = parseFloat(numberInput);
-    if (numberInput === "" || number === 0) {
+    if (number === 0) {
       setError("Can't be zero");
     } else {
       setError("");
@@ -64,7 +64,6 @@ function App() {
             setSelectInput={setSelectInput}
             customInput={customInput}
             setCustomInput={setCustomInput}
-            check={check}
           />
           <Number
             error={error}

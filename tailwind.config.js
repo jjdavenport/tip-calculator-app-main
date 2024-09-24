@@ -16,10 +16,13 @@ export default {
         custom: ["space mono", "sans-serif"],
       },
       backgroundImage: {
-        logo: "url('./public/images/logo.svg')",
+        logo: "url('../src/components/assets/logo.svg')",
+        dollar: "url('../src/components/assets/icon-dollar.svg')",
+        person: "url('../src/components/assets/icon-person.svg')",
       },
       backgroundPosition: {
         logoMobile: "center top 2rem",
+        input: "calc(0% + 1rem) center",
       },
     },
   },
