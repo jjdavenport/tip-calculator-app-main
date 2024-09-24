@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="bg-white text-center text-xs">
+      <footer className="bg-white text-center text-xs md:bg-inherit">
         <p className="inline">
           Challenge by
           <a

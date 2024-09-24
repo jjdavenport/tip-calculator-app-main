@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+import fluid, { extract, screens } from "fluid-tailwind";
+
 export default {
-  content: ["./src/**/*.{html,js,jsx}", "./index.html"],
+  content: {
+    files: ["./src/**/*.{html,js,jsx}", "./index.html"],
+    extract,
+  },
   theme: {
+    screens,
     extend: {
       colors: {
         strongCyan: "hsl(172, 67%, 45%)",
@@ -22,9 +28,10 @@ export default {
       },
       backgroundPosition: {
         logoMobile: "center top 2rem",
+        logoDesktop: "center top 10rem",
         input: "calc(0% + 1rem) center",
       },
     },
   },
-  plugins: [],
+  plugins: [fluid],
 };
